@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sashka moie sonechko</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .text {
+            font-size: 2em;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="text" id="runawayText">Click</div>
+    <script>
+        const textElement = document.getElementById('runawayText');
+
+        function getRandomPosition() {
+            const x = window.innerWidth - textElement.offsetWidth;
+            const y = window.innerHeight - textElement.offsetHeight;
+            return {
+                x: Math.random() * x,
+                y: Math.random() * y
+            };
+        }
+
+        textElement.addEventListener('mouseover', () => {
+            const { x, y } = getRandomPosition();
+            textElement.style.left = `${x}px`;
+            textElement.style.top = `${y}px`;
+        });
+    </script>
+</body>
+</html>
